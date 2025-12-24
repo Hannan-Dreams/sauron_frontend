@@ -50,7 +50,7 @@ export const Tech = () => {
         {
             id: 4,
             route: 'mouse',
-            title: "Gaming Mice",
+            title: "Mouse",
             description: "Precision gaming mice with high DPI",
             icon: <FaMouse className="w-8 h-8" />,
             gradient: 'from-orange-500/20 to-red-500/20',

@@ -26,7 +26,7 @@ export const AdminTechProducts = () => {
         { value: 'mobile', label: 'Mobile Phones' },
         { value: 'laptop', label: 'Laptops' },
         { value: 'keyboard', label: 'Keyboards' },
-        { value: 'mouse', label: 'Gaming Mice' },
+        { value: 'mouse', label: 'Mouse' },
         { value: 'headphones', label: 'Headphones' },
         { value: 'monitor', label: 'Monitors' },
         { value: 'smartwatch', label: 'Smartwatches' },

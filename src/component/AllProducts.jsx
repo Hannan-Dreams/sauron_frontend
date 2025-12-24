@@ -22,13 +22,11 @@ export const AllProducts = () => {
         { value: 'mobile', label: 'Mobile Phones', icon: '📱' },
         { value: 'laptop', label: 'Laptops', icon: '💻' },
         { value: 'keyboard', label: 'Keyboards', icon: '⌨️' },
-        { value: 'mouse', label: 'Gaming Mice', icon: '🖱️' },
+        { value: 'mouse', label: 'Mouse', icon: '🖱️' },
         { value: 'headphones', label: 'Headphones', icon: '🎧' },
         { value: 'monitor', label: 'Monitors', icon: '🖥️' },
         { value: 'smartwatch', label: 'Smartwatches', icon: '⌚' },
         { value: 'tablet', label: 'Tablets', icon: '📲' },
-        { value: 'camera', label: 'Cameras', icon: '📷' },
-        { value: 'gaming', label: 'Gaming', icon: '🎮' },
     ];
 
     const ratingOptions = [
@@ -209,23 +207,13 @@ export const AllProducts = () => {
                         <div>
                             <button
                                 onClick={() => navigate('/tech')}
-                                className="flex items-center gap-2 text-neutral-500 hover:text-cyan-400 transition-colors text-sm group mb-3"
+                                className="flex items-center gap-2 text-neutral-500 hover:text-cyan-400 transition-colors text-sm group"
                             >
                                 <svg className="w-4 h-4 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M15 19l-7-7 7-7"></path>
                                 </svg>
                                 <span>Back to Categories</span>
                             </button>
-
-                            <div className="flex items-center gap-3 mb-2">
-                                <div className="w-1 h-8 bg-gradient-to-b from-cyan-400 to-blue-500 rounded-full"></div>
-                                <h1 className="text-3xl font-bold text-white">All Products</h1>
-                            </div>
-
-                            <p className="text-sm text-neutral-400 flex items-center gap-2">
-                                <span className="inline-block w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></span>
-                                Showing {filteredProducts.length} of {products.length} products
-                            </p>
                         </div>
                     </div>
 

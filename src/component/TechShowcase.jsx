@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FaMobileAlt, FaLaptop, FaHeadphones, FaCamera, FaGamepad, FaTv, FaThLarge } from 'react-icons/fa';
+import { FaMobileAlt, FaLaptop, FaHeadphones, FaTv, FaThLarge, FaKeyboard, FaMouse, FaClock, FaTabletAlt } from 'react-icons/fa';
 
 export const TechShowcase = () => {
     const navigate = useNavigate();
@@ -16,7 +16,7 @@ export const TechShowcase = () => {
             accentColor: 'text-pink-400',
         },
         {
-            name: 'Smartphones',
+            name: 'Mobile Phones',
             route: 'mobile',
             icon: <FaMobileAlt className="w-6 h-6" />,
             tagline: 'Latest flagships & budget beasts',
@@ -32,36 +32,52 @@ export const TechShowcase = () => {
             accentColor: 'text-pink-400',
         },
         {
-            name: 'Audio',
-            route: 'headphones',
-            icon: <FaHeadphones className="w-6 h-6" />,
-            tagline: 'Immersive sound experiences',
+            name: 'Keyboards',
+            route: 'keyboard',
+            icon: <FaKeyboard className="w-6 h-6" />,
+            tagline: 'Mechanical & wireless precision',
             gradient: 'from-green-500/20 to-emerald-500/20',
             accentColor: 'text-emerald-400',
         },
         {
-            name: 'Cameras',
-            route: 'camera',
-            icon: <FaCamera className="w-6 h-6" />,
-            tagline: 'Capture every moment',
+            name: 'Mouse',
+            route: 'mouse',
+            icon: <FaMouse className="w-6 h-6" />,
+            tagline: 'Precision gaming control',
             gradient: 'from-orange-500/20 to-red-500/20',
             accentColor: 'text-orange-400',
         },
         {
-            name: 'Gaming',
-            route: 'gaming',
-            icon: <FaGamepad className="w-6 h-6" />,
-            tagline: 'Next-gen gaming gear',
+            name: 'Headphones',
+            route: 'headphones',
+            icon: <FaHeadphones className="w-6 h-6" />,
+            tagline: 'Immersive sound experiences',
             gradient: 'from-violet-500/20 to-purple-500/20',
             accentColor: 'text-violet-400',
         },
         {
-            name: 'Smart TV',
+            name: 'Monitors',
             route: 'monitor',
             icon: <FaTv className="w-6 h-6" />,
-            tagline: 'Entertainment redefined',
+            tagline: 'Ultimate visual clarity',
             gradient: 'from-amber-500/20 to-yellow-500/20',
             accentColor: 'text-amber-400',
+        },
+        {
+            name: 'Smartwatches',
+            route: 'smartwatch',
+            icon: <FaClock className="w-6 h-6" />,
+            tagline: 'Fitness tracking & notifications',
+            gradient: 'from-rose-500/20 to-pink-500/20',
+            accentColor: 'text-rose-400',
+        },
+        {
+            name: 'Tablets',
+            route: 'tablet',
+            icon: <FaTabletAlt className="w-6 h-6" />,
+            tagline: 'Work & entertainment on the go',
+            gradient: 'from-indigo-500/20 to-blue-500/20',
+            accentColor: 'text-indigo-400',
         },
     ];
 
@@ -112,7 +128,7 @@ export const TechShowcase = () => {
                 </div>
 
                 {/* Category Showcase Grid */}
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-4 mb-16">
+                <div className="flex flex-wrap justify-center gap-4 mb-16">
                     {categories.map((category, index) => (
                         <div
                             key={category.name}
@@ -121,7 +137,7 @@ export const TechShowcase = () => {
                                 window.scrollTo({ top: 0, behavior: 'smooth' });
                                 setTimeout(() => navigate(`/tech/${category.route}`), 300);
                             }}
-                            className={`group relative cursor-pointer transition-all duration-500 ${activeCategory === index ? 'scale-105' : 'scale-100 opacity-70 hover:opacity-100'
+                            className={`group relative cursor-pointer transition-all duration-500 w-[calc(50%-0.5rem)] md:w-[calc(33.333%-0.67rem)] lg:w-[calc(14.285%-0.57rem)] ${activeCategory === index ? 'scale-105' : 'scale-100 opacity-70 hover:opacity-100'
                                 }`}
                         >
                             <div className={`relative bg-gradient-to-br ${category.gradient} backdrop-blur-sm border border-white/10 rounded-2xl p-6 h-full transition-all duration-500 ${activeCategory === index ? 'border-white/30 shadow-2xl' : 'hover:border-white/20'
