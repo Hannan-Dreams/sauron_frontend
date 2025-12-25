@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { USD_TO_INR } from '../utils/constants';
+import { API_ENDPOINTS, API_URL } from '../config/api';
 
 export const ProductDetail = () => {
     const { category, productId } = useParams();
@@ -55,7 +56,7 @@ export const ProductDetail = () => {
         try {
             setLoading(true);
             setError(null);
-            const response = await fetch(`http://localhost:3000/api/tech-products/${productId}`);
+            const response = await fetch(API_ENDPOINTS.TECH_PRODUCTS.GET_BY_ID(productId));
             const data = await response.json();
 
             if (data.success) {
@@ -119,7 +120,7 @@ export const ProductDetail = () => {
                     <div className="flex items-center justify-center bg-neutral-900/30 border border-white/5 p-12">
                         {product.imageUrl ? (
                             <img
-                                src={`http://localhost:3000${product.imageUrl}`}
+                                src={`${API_URL}${product.imageUrl}`}
                                 alt={product.name}
                                 className="w-full h-auto object-contain max-h-[500px]"
                             />

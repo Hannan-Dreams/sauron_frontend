@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getAccessToken, getUser } from '../utils/auth';
+import { API_ENDPOINTS, API_URL } from '../config/api';
 
 export const AdminTechProducts = () => {
     const navigate = useNavigate();
@@ -44,7 +45,7 @@ export const AdminTechProducts = () => {
 
     const fetchProducts = async () => {
         try {
-            const response = await fetch('http://localhost:3000/api/tech-products');
+            const response = await fetch(API_ENDPOINTS.TECH_PRODUCTS.GET_ALL);
             const data = await response.json();
             if (data.success) {
                 setProducts(data.data);
@@ -143,8 +144,8 @@ export const AdminTechProducts = () => {
             }
 
             const url = editingProduct
-                ? `http://localhost:3000/api/tech-products/${editingProduct.productId}`
-                : 'http://localhost:3000/api/tech-products';
+                ? API_ENDPOINTS.TECH_PRODUCTS.UPDATE(editingProduct.productId)
+                : API_ENDPOINTS.TECH_PRODUCTS.CREATE;
 
             const method = editingProduct ? 'PUT' : 'POST';
 
@@ -196,7 +197,7 @@ export const AdminTechProducts = () => {
             affiliateLink: product.affiliateLink || '',
             specs: parsedSpecs.length > 0 ? parsedSpecs : [{ label: '', value: '' }],
         });
-        setImagePreview(product.imageUrl ? `http://localhost:3000${product.imageUrl}` : null);
+        setImagePreview(product.imageUrl ? `${API_URL}${product.imageUrl}` : null);
         setShowForm(true);
     };
 
@@ -207,7 +208,7 @@ export const AdminTechProducts = () => {
 
         const token = getAccessToken();
         try {
-            const response = await fetch(`http://localhost:3000/api/tech-products/${productId}`, {
+            const response = await fetch(API_ENDPOINTS.TECH_PRODUCTS.DELETE(productId), {
                 method: 'DELETE',
                 headers: {
                     'Authorization': `Bearer ${token}`,
@@ -489,7 +490,7 @@ export const AdminTechProducts = () => {
                                     <tr key={product.productId} className="border-t border-white/5 hover:bg-white/5">
                                         <td className="px-6 py-4">
                                             {product.imageUrl ? (
-                                                <img src={`http://localhost:3000${product.imageUrl}`} alt={product.name} className="w-16 h-16 object-cover" />
+                                                <img src={`${API_URL}${product.imageUrl}`} alt={product.name} className="w-16 h-16 object-cover" />
                                             ) : (
                                                 <div className="w-16 h-16 bg-white/10 flex items-center justify-center text-2xl">
                                                     📦

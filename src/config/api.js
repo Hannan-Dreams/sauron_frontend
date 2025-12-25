@@ -2,7 +2,7 @@
 // This file centralizes all API endpoint configurations
 
 // Base API URL - change this based on environment
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+const API_BASE_URL = 'http://13.233.160.35:3000';
 
 // API Endpoints
 export const API_ENDPOINTS = {
@@ -33,6 +33,15 @@ export const API_ENDPOINTS = {
         LEADERBOARD: `${API_BASE_URL}/api/progress/leaderboard`,
         SOLVE: `${API_BASE_URL}/api/progress/solve`,
         UNSOLVE: `${API_BASE_URL}/api/progress/unsolve`,
+    },
+    // Tech Products endpoints
+    TECH_PRODUCTS: {
+        GET_ALL: `${API_BASE_URL}/api/tech-products`,
+        GET_BY_ID: (id) => `${API_BASE_URL}/api/tech-products/${id}`,
+        GET_BY_CATEGORY: (category) => `${API_BASE_URL}/api/tech-products/category/${category}`,
+        CREATE: `${API_BASE_URL}/api/tech-products`,
+        UPDATE: (id) => `${API_BASE_URL}/api/tech-products/${id}`,
+        DELETE: (id) => `${API_BASE_URL}/api/tech-products/${id}`,
     },
     // Health check
     HEALTH: `${API_BASE_URL}/health`,

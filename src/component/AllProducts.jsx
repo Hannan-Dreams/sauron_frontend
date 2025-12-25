@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { FaFilter } from 'react-icons/fa';
 import { FilterPanel } from './FilterPanel';
 import { USD_TO_INR } from '../utils/constants';
+import { API_ENDPOINTS, API_URL } from '../config/api';
 
 export const AllProducts = () => {
     const navigate = useNavigate();
@@ -44,7 +45,7 @@ export const AllProducts = () => {
         try {
             setLoading(true);
             setError(null);
-            const response = await fetch('http://localhost:3000/api/tech-products');
+            const response = await fetch(API_ENDPOINTS.TECH_PRODUCTS.GET_ALL);
             const data = await response.json();
 
             if (data.success) {
@@ -277,7 +278,7 @@ export const AllProducts = () => {
                                 <div className="relative h-56 bg-white/5 flex items-center justify-center overflow-hidden">
                                     {product.imageUrl ? (
                                         <img
-                                            src={`http://localhost:3000${product.imageUrl}`}
+                                            src={`${API_URL}${product.imageUrl}`}
                                             alt={product.name}
                                             className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500"
                                             onError={(e) => {

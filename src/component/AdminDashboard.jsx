@@ -59,7 +59,7 @@ export const AdminDashboard = () => {
             }
 
             // Fetch Tech products stats
-            const techResponse = await fetch('http://localhost:3000/api/tech-products');
+            const techResponse = await fetch(API_ENDPOINTS.TECH_PRODUCTS.GET_ALL);
             const techData = await techResponse.json();
 
             if (techData.success) {
