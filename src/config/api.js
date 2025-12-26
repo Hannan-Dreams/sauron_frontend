@@ -2,7 +2,7 @@
 // This file centralizes all API endpoint configurations
 
 // Base API URL - change this based on environment
-const API_BASE_URL = 'http://13.233.160.35:3000';
+const API_BASE_URL = 'https://api.sauron.digital';
 
 // API Endpoints
 export const API_ENDPOINTS = {
